@@ -9,5 +9,12 @@
             "program": "${command:cmake.launchTargetPath}",
             "cwd": "${workspaceFolder}/build"
          }
-    ]
+    ],
+    "setupCommands": [
+        {
+            "description": "Enable pretty-printing for gdb",
+            "text": "-enable-pretty-printing",
+            "ignoreFailures": true
+        }
+    ],
 }

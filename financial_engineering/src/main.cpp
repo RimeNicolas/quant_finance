@@ -31,35 +31,6 @@ void test_cholesky() {
 	print_vector(low_triangular);
 }
 
-// void test_covariance_matrix() {
-// 	RandomGeneratorLewis<double> randgen(0);
-
-// 	std::array<double, 3> mu = { 0,0,0 };
-// 	Tensor2<double, 3> cov_matrix = { {0} };
-// 	cov_matrix[0][0] = 4;
-// 	cov_matrix[0][1] = 12;
-// 	cov_matrix[0][2] = -16;
-// 	cov_matrix[1][0] = 12;
-// 	cov_matrix[1][1] = 37;
-// 	cov_matrix[1][2] = -43;
-// 	cov_matrix[2][0] = -16;
-// 	cov_matrix[2][1] = -43;
-// 	cov_matrix[2][2] = 98;
-
-// 	print_array(cov_matrix);
-
-// 	Tensor2<double, 3> low_triangular = \
-// 		cholesky_factorisation(cov_matrix);
-
-// 	std::cout << std::endl;
-// 	print_array(low_triangular);
-
-// 	std::array<double, 3> z = randgen.normal_array(mu, cov_matrix);
-
-// 	print_array(z);
-// }
-
-
 void test_brownian_motion_1d() {
 	const size_t n_steps(10);
 	const double final_time(10.0);
@@ -72,9 +43,25 @@ void test_brownian_motion_1d() {
 	print_vector(v2);
 }
 
+void test_brownian_motion_d() {
+	const size_t n(11);
+	const size_t d(2);
+	BrownianMotionMultiDim<double> bm(10.0, n);
+	std::vector<double> mu = { 0.0,0 };
+	std::vector<std::vector<double>> cov(d, std::vector<double>(d,0));
+	cov[0][0] = 4;
+	cov[0][1] = 0.0;
+	cov[1][0] = 0.0;
+	cov[1][1] = 1;
+	std::vector<std::vector<double>> v2 = bm.motion(mu, cov);
+	for (size_t i(0); i < n; i++) {
+		print_vector(v2[i]);
+	}
+}
+
 int main(int, char**) {
 
-	test_brownian_motion_1d();
+	test_brownian_motion_d();
 
 
     return 0;

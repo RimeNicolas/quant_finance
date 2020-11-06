@@ -88,13 +88,13 @@ inline std::vector<T> RandomGeneratorLewis<T>::gaussian_vector(const std::vector
 	std::pair<T, T> z = { 0,0 };
 	for (size_t i(0); i < dim; i++) {
 		if (i % 2 == 0) {
-			z = this->box_muller();
+			z = this->box_muller_opt();
 			z1 = z.first;
 		}
 		else {
 			z1 = z.second;
 		}
-		for (size_t j(0); j < dim; j++) {
+		for (size_t j(i); j < dim; j++) {
 			random_array[j] += A[j][i] * z1;
 		}
 	}
