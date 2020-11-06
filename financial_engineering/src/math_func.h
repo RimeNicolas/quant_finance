@@ -1,6 +1,3 @@
-#include <vector>
-#include <cmath>
-
 template<typename T>
 std::vector<std::vector<T>> cholesky_factorisation(const std::vector<std::vector<T>>& matrix) {
 	std::size_t dim = matrix.size();

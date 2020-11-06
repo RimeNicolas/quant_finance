@@ -1,7 +1,3 @@
-#include <utility>
-#include <cmath>
-#include <vector>
-
 constexpr double m_pi = 3.14159265358979323846;
 
 template<typename T>

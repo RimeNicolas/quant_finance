@@ -1,7 +1,3 @@
-#include <iostream>
-#include <vector>
-#include <array>
-
 template<typename T, typename U>
 void print_pair(std::pair<T, U> p) {
 	std::cout << p.first << ", " << p.second << std::endl;
