@@ -1,10 +1,6 @@
 #include<vector>
-#include"math_func.h"
 
 constexpr double m_pi = 3.14159265358979323846;
-
-template<typename T>
-std::vector<std::vector<T>> cholesky_factorisation(const std::vector<std::vector<T>>& matrix);
 
 template<typename T>
 class RandomGenerator {
