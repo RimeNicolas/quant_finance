@@ -1,3 +1,6 @@
+#include<vector>
+#include"math_func.h"
+
 constexpr double m_pi = 3.14159265358979323846;
 
 template<typename T>
